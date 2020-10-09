@@ -110,8 +110,14 @@ The Love of Statistics Scale consists of 4 questions rated on a scale of 1-5. Be
     + Answer: 
     
 ```{r}
-dataset <- dataset %>% mutate(lvst4reverse = recode(lvst4, "completely"="Not at all", "mostly"="a little", "moderately"="moderately", "a little"="mostly", "Not at all"="completely"))
-freq(dataset$lvst4reverse)
+# The line below is how I first reverse coded the variable. It seemed to work, but I later found some problems with the z-scores.
+# While the text values in the variable did get changed, the order of the factor levels also got reversed numerically.
+# The result was that the number values really didn't change. I left this here to make you aware to check results are what you expect when you modify the variables.
+# It's easy to miss a problem like this in your code.
+#dataset <- dataset %>% mutate(lvst4reverse = recode(lvst4, "completely"="Not at all", "mostly"="a little", "moderately"="moderately", "a little"="mostly", "Not at all"="completely"))
+
+# The line below correctly reverse coded the lvst4 variable.
+dataset <- dataset %>% mutate(lvst4reverse = 6 - as.numeric(lvst4))
 ```
 
 ## Score the Love of Statistics Scale instrument
