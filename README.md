@@ -1,4 +1,4 @@
-# Data Manipulation Tutorial
+# Data Manipulation Exercise
 
 ## Summary of steps to complete
 
