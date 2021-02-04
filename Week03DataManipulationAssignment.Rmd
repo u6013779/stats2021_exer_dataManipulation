@@ -130,7 +130,7 @@ Run the following code block to calculate a final score for the Love of Statisti
     + Answer: 
 
 
-```{r, eval=FALSE}
+```{r }
 dataset <- dataset %>% mutate(LOSS_total = as.numeric(lvst1) + as.numeric(lvst2) + as.numeric(lvst3) + as.numeric(lvst4reverse))
 ```
 
@@ -187,7 +187,7 @@ dataset <- dataset %>% mutate(FOSS_mean_z = scale(FOSS_mean))
 ```
 
 ## Save your data for next week
-```{r}
+```{r, eval=FALSE}
 rio::export(dataset,"Week4.rds")
 ```
 
